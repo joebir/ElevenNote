@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ElevenNote.Services
 {
-    class NoteService
+    public class NoteService
     {
         public IEnumerable<NoteListItemModel> GetNotes()
         {
@@ -18,12 +18,14 @@ namespace ElevenNote.Services
                     ctx
                         .Notes
                         .Select(e =>
-                            new NoteListItemModel(
-                                e.NoteId,
-                                e.Title,
-                                e.CreatedUtc,
-                                e.ModifiedUtc))
-                            .ToArray();
+                            new NoteListItemModel
+                            {
+                                NoteId = e.NoteId,
+                                Title = e.Title,
+                                CreatedUtc = e.CreatedUtc,
+                                ModifiedUtc = e.ModifiedUtc
+                            })
+                        .ToArray();
             }
         }
     }
