@@ -27,6 +27,5 @@ namespace ElevenNote.Data
         public DateTime CreatedUtc { get; set; }
 
         public DateTime? ModifiedUtc { get; set; }
-
     }
 }
